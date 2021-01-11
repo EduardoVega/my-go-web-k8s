@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mygoweb
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mygoweb
+  template:
+    metadata:
+      labels:
+        app: mygoweb
+    spec:                             
+      containers:
+        - image: edvegavalerio/mygoweb:03
+          name: mygoweb
+          ports:
+          - containerPort: 8080
